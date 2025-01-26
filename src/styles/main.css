@@ -1,0 +1,60 @@
+:root {
+    --primary-color: #333;
+    --background-color: #fff;
+    --accent-color: #0066cc;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: var(--primary-color);
+    background: var(--background-color);
+}
+
+nav {
+    background: #f8f9fa;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+nav a {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin: 0 1rem;
+    padding: 0.5rem;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: #f8f9fa;
+    margin-top: 2rem;
+}
+
+/* Blog post styles */
+.post {
+    margin-bottom: 2rem;
+}
+
+.post-title {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.post-date {
+    color: #666;
+    font-size: 0.9rem;
+} 

@@ -141,31 +141,6 @@
         } else {
             renderBlogList();
         }
-
-        // Add this function right after the existing functions
-        function handleNavigation() {
-            // Get all navigation links
-            const navLinks = document.querySelectorAll('nav a');
-            
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    // If clicking the current page's link
-                    if (link.href === window.location.href || 
-                        (link.getAttribute('href') === '/content/pages/blog.html' && 
-                         window.location.pathname === '/content/pages/blog.html')) {
-                        e.preventDefault();
-                        // If on blog page, reset to blog list view
-                        if (window.location.pathname === '/content/pages/blog.html') {
-                            history.pushState({}, '', '/content/pages/blog.html');
-                            renderBlogList();
-                        }
-                    }
-                });
-            });
-        }
-
-        // Add this line at the end of the script, just before the closing </script> tag
-        handleNavigation();
     </script>
 </body>
 </html> 

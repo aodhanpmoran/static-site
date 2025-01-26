@@ -13,9 +13,9 @@
                 <div class="logo">My Site</div>
                 <div>
                     <a href="/">Home</a>
-                    <a href="/blog">Blog</a>
-                    <a href="/about">About</a>
-                    <a href="/faq">FAQ</a>
+                    <a href="/content/pages/blog.html">Blog</a>
+                    <a href="/content/pages/about.html">About</a>
+                    <a href="/content/pages/faq.html">FAQ</a>
                 </div>
             </nav>
         </div>
@@ -36,5 +36,19 @@
             </div>
         </div>
     </section>
+
+    <script>
+        // Get all navigation links
+        const navLinks = document.querySelectorAll('nav a');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                // If clicking the current page's link
+                if (link.href === window.location.href) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
 </body>
 </html> 

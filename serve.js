@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 // Serve static files from multiple directories
 app.use(express.static('src'));
 app.use(express.static('public'));
-app.use('/images', express.static('images'));
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 // Handle routes for HTML files
 app.get('/:page', (req, res) => {

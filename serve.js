@@ -4,8 +4,10 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Serve static files from the src directory
+// Serve static files from multiple directories
 app.use(express.static('src'));
+app.use(express.static('public'));
+app.use('/images', express.static('images'));
 
 // Handle routes for HTML files
 app.get('/:page', (req, res) => {

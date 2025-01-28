@@ -1,40 +1,186 @@
 :root {
-    --primary-color: #333;
+    --primary-color: #1a1a1a;
     --background-color: #fff;
-    --accent-color: #0066cc;
+    --accent-color: #FFB800;
+    --text-color: #333;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    color: var(--primary-color);
+    color: var(--text-color);
     background: var(--background-color);
 }
 
-nav {
-    background: #f8f9fa;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+.main-header {
+    padding: 1.25rem 2rem;
+    background: white;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
-nav a {
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.logo a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+.logo-text {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    letter-spacing: -0.02em;
+}
+
+.logo-subtitle {
+    font-size: 0.75rem;
+    color: #666;
+    margin-top: 0.125rem;
+    text-transform: lowercase;
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+}
+
+.nav-links a {
     color: var(--primary-color);
     text-decoration: none;
-    margin: 0 1rem;
-    padding: 0.5rem;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
 }
 
-nav a:hover {
+.nav-links a:hover {
     color: var(--accent-color);
 }
 
 main {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 0 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding: 5rem 0 4rem;
+    align-items: center;
+}
+
+.hero-content h1 {
+    font-size: 3.75rem;
+    line-height: 1.1;
+    margin: 0 0 2rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+.highlight-container {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+}
+
+.highlight {
+    background: var(--accent-color);
+    padding: 0 0.2em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    line-height: 1.4;
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    color: #666;
+    margin-bottom: 2.5rem;
+    max-width: 90%;
+    line-height: 1.5;
+}
+
+.cta-button {
+    display: inline-block;
+    background: var(--accent-color);
+    color: var(--primary-color);
+    padding: 1.125rem 2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    transition: transform 0.2s, background-color 0.2s;
+    text-transform: uppercase;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    background-color: #ffc526;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.featured {
+    padding: 6rem 0 4rem;
+    text-align: center;
+}
+
+.featured h2 {
+    font-size: 1.125rem;
+    color: #666;
+    margin-bottom: 4rem;
+    font-weight: 500;
+}
+
+.logo-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 4rem;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.logo-grid img {
+    max-width: 100%;
+    height: auto;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.logo-grid img:hover {
+    opacity: 1;
 }
 
 footer {
@@ -42,6 +188,44 @@ footer {
     padding: 2rem;
     background: #f8f9fa;
     margin-top: 2rem;
+    font-size: 0.875rem;
+    color: #666;
+}
+
+@media (max-width: 1024px) {
+    .hero {
+        gap: 3rem;
+        padding: 4rem 0;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding: 3rem 0;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .logo-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero-description {
+        font-size: 1.125rem;
+    }
 }
 
 /* Blog post styles */

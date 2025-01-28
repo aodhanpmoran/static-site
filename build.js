@@ -23,7 +23,7 @@ async function processMarkdown(filePath) {
 
 async function buildPage(template, content, data) {
     let page = template.replace('{{content}}', content);
-    page = page.replace('{{title}}', data.title || 'My Website');
+    page = page.replace('{{title}}', data.title || 'Castcraft co.');
     return page;
 }
 

@@ -7,8 +7,18 @@ const PORT = process.env.PORT || 3000;
 // Serve static files from the public directory
 app.use(express.static('public'));
 
-// Fallback for SPA-like behavior
-app.get('*', (req, res) => {
+// Handle routes for HTML files
+app.get('/:page', (req, res) => {
+    const page = req.params.page;
+    res.sendFile(path.join(__dirname, 'public', `${page}.html`), (err) => {
+        if (err) {
+            res.sendFile(path.join(__dirname, 'public', 'index.html'));
+        }
+    });
+});
+
+// Root route
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 

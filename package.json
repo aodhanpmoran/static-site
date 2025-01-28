@@ -5,11 +5,15 @@
   "main": "build.js",
   "scripts": {
     "build": "node build.js",
-    "serve": "node serve.js"
+    "serve": "node serve.js",
+    "dev": "nodemon serve.js --watch src"
   },
   "dependencies": {
-    "marked": "^9.1.5",
     "express": "^4.18.2",
-    "front-matter": "^4.0.2"
+    "front-matter": "^4.0.2",
+    "marked": "^9.1.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
   }
-} 
+}

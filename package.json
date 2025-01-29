@@ -6,7 +6,7 @@
   "scripts": {
     "build": "node build.js",
     "serve": "node serve.js",
-    "dev": "nodemon serve.js --watch src"
+    "dev": "nodemon serve.js --watch ."
   },
   "dependencies": {
     "express": "^4.18.2",

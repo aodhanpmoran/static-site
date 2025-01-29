@@ -10,7 +10,7 @@ marked.setOptions({
 });
 
 async function readTemplate() {
-    const template = await fs.readFile('./src/templates/base.html', 'utf-8');
+    const template = await fs.readFile('./index.html', 'utf-8');
     return template;
 }
 
@@ -36,39 +36,31 @@ async function ensureDir(dir) {
 }
 
 async function copyAssets() {
-    await ensureDir('./public/styles');
-    await ensureDir('./public/scripts');
-    await fs.copyFile('./src/styles/main.css', './public/styles/main.css');
-    // Copy scripts if they exist
-    try {
-        await fs.copyFile('./src/scripts/main.js', './public/scripts/main.js');
-    } catch (err) {
-        console.log('No scripts to copy yet');
-    }
+    await ensureDir('./styles');
+    await ensureDir('./scripts');
+    // No need to copy files since they're already in the right place
 }
 
 async function build() {
     try {
         const template = await readTemplate();
         
-        // Ensure public directory exists
-        await ensureDir('./public');
-        
-        // Process content directory
-        const contentDir = './src/content';
-        const files = await fs.readdir(contentDir);
-        
-        for (const file of files) {
-            if (path.extname(file) === '.md') {
-                const { attributes, html } = await processMarkdown(path.join(contentDir, file));
-                const outputPath = path.join('./public', file.replace('.md', '.html'));
-                const finalHtml = await buildPage(template, html, attributes);
-                await fs.writeFile(outputPath, finalHtml);
+        // Process content directory if it exists
+        try {
+            const contentDir = './content';
+            const files = await fs.readdir(contentDir);
+            
+            for (const file of files) {
+                if (path.extname(file) === '.md') {
+                    const { attributes, html } = await processMarkdown(path.join(contentDir, file));
+                    const outputPath = path.join('./', file.replace('.md', '.html'));
+                    const finalHtml = await buildPage(template, html, attributes);
+                    await fs.writeFile(outputPath, finalHtml);
+                }
             }
+        } catch (err) {
+            console.log('No content directory found, skipping markdown processing');
         }
-        
-        // Copy assets
-        await copyAssets();
         
         console.log('Build completed successfully!');
     } catch (err) {

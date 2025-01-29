@@ -19,11 +19,5 @@
       "src": "scripts/**",
       "use": "@vercel/static"
     }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
   ]
 } 

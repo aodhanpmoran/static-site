@@ -17,11 +17,7 @@ body {
     margin: 0;
     padding: 0;
     color: var(--text-color);
-    background: var(--background-color);
-    background-image: 
-        radial-gradient(circle at 0% 0%, rgba(37, 99, 235, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
-    background-attachment: fixed;
+    background: white;
 }
 
 .main-header {
@@ -66,6 +62,9 @@ nav {
     padding: 0.5rem 1rem;
     border-radius: 8px;
     transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .nav-links a:hover {
@@ -73,7 +72,23 @@ nav {
     color: white;
 }
 
+.nav-phone-icon {
+    width: 16px;
+    height: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
 main {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: white;
+}
+
+.content-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
@@ -87,10 +102,15 @@ main {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    background: white;
+    width: 100%;
 }
 
 .hero-content {
     padding-right: 2rem;
+    background: white;
 }
 
 .hero h1 {
@@ -172,7 +192,7 @@ main {
 .hero-card {
     background: linear-gradient(135deg, #4338CA 0%, #3B82F6 100%);
     border-radius: 32px;
-    padding: 2rem;
+    padding: 2.5rem;
     color: white;
     position: relative;
     box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.25);
@@ -195,7 +215,7 @@ main {
     border-radius: 100px;
     font-size: 0.875rem;
     font-weight: 500;
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
 }
 
 .status-dot {
@@ -220,7 +240,7 @@ main {
 }
 
 .card-content {
-    padding: 0 1rem;
+    padding: 0;
 }
 
 .hero-card h2 {
@@ -228,12 +248,14 @@ main {
     font-weight: 700;
     margin: 0 0 1rem 0;
     line-height: 1.1;
+    letter-spacing: -0.02em;
 }
 
 .hero-card > p {
     font-size: 1.25rem;
     opacity: 0.9;
-    margin: 0 0 2.5rem 0;
+    margin: 0 0 3rem 0;
+    line-height: 1.4;
 }
 
 .see-pricing-btn {
@@ -247,7 +269,7 @@ main {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .see-pricing-btn:hover {
@@ -262,6 +284,7 @@ main {
     border-radius: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .avatar {
@@ -297,7 +320,7 @@ main {
     font-size: 0.875rem !important;
 }
 
-.arrow-circle {
+.arrow-circle, .pricing-arrow-circle {
     width: 40px;
     height: 40px;
     background: white;
@@ -308,6 +331,17 @@ main {
     margin-left: 1rem;
 }
 
+.arrow-circle svg, .pricing-arrow-circle svg {
+    width: 24px;
+    height: 24px;
+    color: #000;
+}
+
+.arrow-circle svg path, .pricing-arrow-circle svg path {
+    stroke: currentColor;
+    stroke-width: 2;
+}
+
 .arrow {
     color: #000;
     font-size: 1.25rem;
@@ -316,8 +350,13 @@ main {
 .how-it-works {
     padding: 8rem 2rem;
     text-align: center;
-    margin: 0;
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
+    margin: -4rem 0 0 0;
+    background: linear-gradient(180deg, 
+        rgba(255, 255, 255, 1) 0%,
+        rgba(37, 99, 235, 0.05) 20%,
+        rgba(37, 99, 235, 0.05) 80%,
+        rgba(255, 255, 255, 1) 100%
+    );
     position: relative;
     overflow: hidden;
     width: 100%;
@@ -332,7 +371,7 @@ main {
     top: 0;
     left: 0;
     background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232563EB' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    opacity: 0.5;
+    opacity: 0.3;
 }
 
 .how-it-works h2 {
@@ -416,39 +455,64 @@ main {
 }
 
 .features {
+    list-style: none;
+    padding: 0;
+    margin: 2rem -3rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    overflow: hidden;
-    position: relative;
-    margin: 0 -3rem;
+    gap: 0.6rem;
+}
+
+.features li {
     padding: 0.5rem 0;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.features li::before {
+    content: '✓';
+    color: #10B981;
+    font-weight: bold;
+}
+
+.timeline {
+    display: inline-block;
+    background: #F0FDF4;
+    color: #059669;
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-top: 1rem;
 }
 
 .stream {
     position: relative;
     height: 3rem;
     overflow: hidden;
-    padding: 0 3rem;
+    padding: 0;
+    margin: 0;
     background: linear-gradient(
         to right,
         var(--card-background) 0%,
-        transparent 5%,
-        transparent 95%,
+        transparent 10%,
+        transparent 90%,
         var(--card-background) 100%
     );
 }
 
 .stream-content {
     display: flex;
-    gap: 0.75rem;
+    gap: 1rem;
     position: absolute;
     animation-duration: 20s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     white-space: nowrap;
     will-change: transform;
-    padding: 0 1rem;
+    padding: 0 2rem;
 }
 
 .stream-left .stream-content {
@@ -486,25 +550,12 @@ main {
     color: var(--primary-color);
     white-space: nowrap;
     transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .features span:hover {
     background: var(--accent-gradient);
     color: white;
-}
-
-.timeline {
-    display: inline-flex;
-    align-items: center;
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
-    padding: 1rem 2rem;
-    border-radius: 16px;
-}
-
-.timeline span {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--primary-color);
 }
 
 @media (max-width: 1024px) {
@@ -519,20 +570,15 @@ main {
 .benefits-section {
     padding: 8rem 0;
     text-align: center;
-    background: var(--background-color);
-    margin: 4rem -2rem;
+    background: linear-gradient(180deg, 
+        rgba(255, 255, 255, 1) 0%,
+        rgba(37, 99, 235, 0.05) 20%,
+        rgba(37, 99, 235, 0.05) 80%,
+        rgba(255, 255, 255, 1) 100%
+    );
+    margin: 0;
     position: relative;
     overflow: hidden;
-}
-
-.benefits-section::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
 }
 
 .benefits-title {
@@ -722,15 +768,25 @@ footer {
 }
 
 .testimonial {
-    padding: 8rem 2rem;
-    background: #f8f9fb;
-    margin: 4rem -2rem;
-    text-align: center;
+    position: relative;
+    width: 100%;
+    background: white;
+    padding: 8rem 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.testimonial::before {
+    content: none;
 }
 
 .testimonial-content {
+    position: relative;
+    z-index: 1;
     max-width: 880px;
     margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
 }
 
 .quote {
@@ -740,6 +796,7 @@ footer {
     color: var(--primary-color);
     margin-bottom: 3rem;
     font-weight: 500;
+    text-align: center;
 }
 
 .author {
@@ -777,4 +834,742 @@ footer {
     font-size: 1rem;
     color: #64748b;
     margin: 0;
+}
+
+.audience-growth-section {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(180deg, 
+        rgba(255, 255, 255, 1) 0%,
+        rgba(37, 99, 235, 0.05) 20%,
+        rgba(37, 99, 235, 0.05) 80%,
+        rgba(255, 255, 255, 1) 100%
+    );
+    padding: 6rem 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.audience-growth-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.audience-growth-title {
+    font-size: 3rem;
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 4rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.growth-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.growth-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease;
+}
+
+.growth-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-hover-shadow);
+}
+
+.growth-card h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.growth-card p {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.price-amount {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.price-period {
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+@media (max-width: 1024px) {
+    .growth-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .growth-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .audience-growth-title {
+        font-size: 2.5rem;
+    }
+}
+
+.pricing-section {
+    padding: 6rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+}
+
+.pricing-content {
+    text-align: center;
+}
+
+.pricing-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    letter-spacing: 0.1em;
+}
+
+.pricing-title {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+    line-height: 1.2;
+}
+
+.pricing-subtitle {
+    color: var(--accent-color);
+}
+
+.pricing-cards {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.pricing-cards .hero-card {
+    background: linear-gradient(135deg, #4338CA 0%, #3B82F6 100%);
+    border-radius: 32px;
+    padding: 2.5rem;
+    color: white;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.25);
+    transition: all 0.3s ease;
+    max-width: 400px;
+    margin: 0;
+}
+
+.pricing-cards .hero-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 35px 60px -15px rgba(37, 99, 235, 0.3);
+}
+
+.pricing-cards .hero-card .start-today {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #000;
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    position: absolute;
+    top: 2.5rem;
+    left: 2.5rem;
+}
+
+.pricing-cards .hero-card .card-content {
+    padding: 0;
+}
+
+.pricing-cards .hero-card h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.pricing-cards .hero-card p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    margin: 0 0 3rem 0;
+    line-height: 1.4;
+}
+
+.pricing-cards .hero-card .see-pricing-btn {
+    width: 100%;
+    background: white;
+    color: #000;
+    border: none;
+    padding: 1.25rem;
+    border-radius: 16px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+.pricing-cards .hero-card .see-pricing-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-cards .hero-card .book-call {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.pricing-cards .hero-card .avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 1rem;
+    background: #FFB800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pricing-cards .hero-card .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pricing-cards .hero-card .call-text {
+    flex: 1;
+}
+
+.pricing-cards .hero-card .call-text p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.pricing-cards .hero-card .schedule-now {
+    color: #A5B4FC;
+    font-size: 0.875rem !important;
+}
+
+.pricing-cards .hero-card .arrow-circle {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+}
+
+.pricing-cards .hero-card .arrow {
+    color: #000;
+    font-size: 1.25rem;
+}
+
+.membership-card {
+    background: white;
+    border-radius: 24px;
+    padding: 2rem;
+    text-align: left;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.membership-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--card-hover-shadow);
+}
+
+.card-faces {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.face {
+    font-size: 2rem;
+    background: var(--glass-background);
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.face:hover {
+    transform: scale(1.1);
+}
+
+.card-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: black;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+}
+
+.pricing-details-card {
+    background: white;
+    border-radius: 24px;
+    padding: 3rem;
+    text-align: left;
+    box-shadow: var(--card-shadow);
+}
+
+.pricing-header {
+    margin-bottom: 2rem;
+}
+
+.pricing-header h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin: 0 0 0.5rem 0;
+}
+
+.pricing-note {
+    font-size: 0.875rem;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.price {
+    margin-bottom: 2rem;
+}
+
+.amount {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.period {
+    font-size: 1.25rem;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    background: var(--glass-background);
+    padding: 1rem;
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+}
+
+.feature-item {
+    background: var(--card-background);
+    padding: 1.5rem 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(8px);
+}
+
+.feature-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    background: var(--accent-gradient);
+    color: white;
+}
+
+.join-button {
+    width: 100%;
+    background: var(--accent-gradient);
+    color: white;
+    border: none;
+    padding: 1.25rem;
+    border-radius: 12px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.join-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(37, 99, 235, 0.2);
+}
+
+.pricing-benefits {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    width: auto;
+    margin: 0;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.benefit-item {
+    text-align: left;
+    padding: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.benefit-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    background: #F8FAFC;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+.benefit-item h4 {
+    color: var(--primary-color);
+    margin: 0 0 0.5rem 0;
+    font-size: 1.125rem;
+}
+
+.benefit-item p {
+    color: #64748B;
+    opacity: 1;
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+}
+
+.benefit-item .text-content {
+    flex: 1;
+}
+
+/* Pricing Hero Card Specific Styles */
+.pricing-hero-card {
+    background: linear-gradient(135deg, #4338CA 0%, #3B82F6 100%);
+    border-radius: 32px;
+    padding: 2.5rem;
+    color: white;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.25);
+    transition: all 0.3s ease;
+    max-width: 400px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
+}
+
+.pricing-card-content {
+    padding: 0;
+    margin-top: auto;
+    margin-bottom: 2rem;
+}
+
+.pricing-hero-text {
+    text-align: left;
+}
+
+.pricing-hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.pricing-hero-description {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.pricing-book-call {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.pricing-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 1rem;
+    background: #FFB800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pricing-call-text p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.pricing-schedule-now {
+    color: #A5B4FC;
+    font-size: 0.875rem !important;
+}
+
+.pricing-arrow-circle {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+}
+
+.pricing-arrow {
+    color: #000;
+    font-size: 1.25rem;
+}
+
+/* Price Animation Option 1: Fade Slide Up */
+.price-animation-container {
+    position: relative;
+    height: 6rem;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.price-cycle {
+    position: absolute;
+    width: 100%;
+    animation: fadeSlideUp 6s infinite;
+    opacity: 0;
+    transform: translateY(30px);
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1;
+    padding-top: 0.5rem;
+}
+
+.price-cycle:nth-child(2) {
+    animation-delay: 2s;
+}
+
+.price-cycle:nth-child(3) {
+    animation-delay: 4s;
+}
+
+@keyframes fadeSlideUp {
+    0%, 15% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    20%, 40% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    45%, 100% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+}
+
+/* Price Animation Option 2: Crossfade */
+.price-crossfade {
+    position: relative;
+    height: 4rem;
+    overflow: hidden;
+}
+
+.price-crossfade .price-cycle {
+    position: absolute;
+    width: 100%;
+    animation: crossfade 6s infinite;
+    opacity: 0;
+}
+
+@keyframes crossfade {
+    0%, 20% {
+        opacity: 0;
+    }
+    25%, 45% {
+        opacity: 1;
+    }
+    50%, 100% {
+        opacity: 0;
+    }
+}
+
+/* Price Animation Option 3: Flip */
+.price-flip {
+    position: relative;
+    height: 4rem;
+    perspective: 1000px;
+}
+
+.price-flip .price-cycle {
+    position: absolute;
+    width: 100%;
+    animation: flip 6s infinite;
+    transform-origin: 50% 50%;
+    backface-visibility: hidden;
+}
+
+@keyframes flip {
+    0%, 20% {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+    25%, 45% {
+        transform: rotateX(180deg);
+        opacity: 0;
+    }
+    50%, 100% {
+        transform: rotateX(360deg);
+        opacity: 1;
+    }
+}
+
+/* Price Animation Option 4: Scale Fade */
+.price-scale {
+    position: relative;
+    height: 4rem;
+    overflow: hidden;
+}
+
+.price-scale .price-cycle {
+    position: absolute;
+    width: 100%;
+    animation: scaleFade 6s infinite;
+    transform-origin: 50% 50%;
+}
+
+@keyframes scaleFade {
+    0%, 20% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    25%, 45% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50%, 100% {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+}
+
+/* Price Animation Option 5: Blur Fade */
+.price-blur {
+    position: relative;
+    height: 4rem;
+    overflow: hidden;
+}
+
+.price-blur .price-cycle {
+    position: absolute;
+    width: 100%;
+    animation: blurFade 6s infinite;
+}
+
+@keyframes blurFade {
+    0%, 20% {
+        opacity: 0;
+        filter: blur(4px);
+    }
+    25%, 45% {
+        opacity: 1;
+        filter: blur(0);
+    }
+    50%, 100% {
+        opacity: 0;
+        filter: blur(4px);
+    }
+}
+
+/* Option 1: Flexbox with Space Between */
+.pricing-cards.flex-space-between {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 0 10%;
+}
+
+/* Option 2: Grid with Wider Columns */
+.pricing-cards.grid-wider-columns {
+    display: grid;
+    grid-template-columns: 1.2fr 1.8fr;
+    gap: 2rem;
+    padding: 0 10%;
+}
+
+/* Option 3: Margin Adjustment */
+.pricing-cards.margin-adjustment {
+    margin: 0 10%;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2rem;
+}
+
+/* Option 4: Padding Increase */
+.pricing-cards.padding-increase {
+    padding: 0 12%;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2rem;
+}
+
+/* Option 5: Transform and Scale */
+.pricing-cards.transform-scale {
+    transform: scale(1.1);
+    transform-origin: center;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2rem;
 } 

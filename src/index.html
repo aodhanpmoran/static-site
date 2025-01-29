@@ -16,8 +16,10 @@
                 <a href="/">Castcraft co.</a>
             </div>
             <div class="nav-links">
-                <a href="/book">Book a Call</a>
-                <a href="/pricing">See Pricing</a>
+                <a href="https://cal.com/castcraft-discovery/15min"><svg class="nav-phone-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" fill="currentColor"/>
+                </svg>Book a Call</a>
+                <a href="#pricing-section" class="scroll-to-pricing">See Pricing</a>
             </div>
         </nav>
     </header>
@@ -48,16 +50,18 @@
                     <p>One subscription to rule them all.</p>
                     <button class="see-pricing-btn">See pricing</button>
                     <div class="book-call">
-                        <div class="avatar">
-                            <img src="images/headshot-two.png" alt="Book a call">
-                        </div>
-                        <div class="call-text">
-                            <p>Book a 15-min intro call</p>
-                            <p class="schedule-now">Schedule now</p>
-                        </div>
-                        <div class="arrow-circle">
-                            <span class="arrow">→</span>
-                        </div>
+                        <a href="https://cal.com/castcraft-discovery/15min" style="text-decoration: none; color: inherit; display: flex; align-items: center; width: 100%;">
+                            <img src="images/headshot-two.png" alt="Book a call" class="avatar">
+                            <div class="call-text">
+                                <p>Book a 15-min intro call</p>
+                                <p class="schedule-now">Schedule now</p>
+                            </div>
+                            <div class="arrow-circle">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -116,7 +120,7 @@
 
                 <div class="process-card transform">
                     <h3>Grow</h3>
-                    <p>If we don't 2x your reach in 30 days, we will work for free until we do..</p>
+                    <p>If we don't 2x your reach in 30 days, you get your money back.</p>
                     <div class="timeline">
                         <span>Results in 2-4 weeks</span>
                     </div>
@@ -190,21 +194,102 @@
             </div>
         </section>
 
-        <section class="featured">
-            <h2>Featured In</h2>
-            <div class="logo-grid">
-                <img src="/images/forbes.png" alt="Forbes">
-                <img src="/images/entrepreneur.png" alt="Entrepreneur">
-                <img src="/images/billboard.png" alt="Billboard">
-                <img src="/images/digiday.png" alt="Digiday">
-                <img src="/images/nyt.png" alt="The New York Times">
+        <section class="pricing-section" id="pricing-section">
+            <div class="pricing-content">
+                <p class="pricing-label">PRICING</p>
+                <h2 class="pricing-title">One subscription,<br><span class="pricing-subtitle">endless possibilities</span></h2>
+                
+                <div class="pricing-cards">
+                    <div class="hero-card pricing-hero-card" id="pricing-join-card">
+                        <div class="start-today pricing-start-badge">
+                            <span class="status-dot"></span>
+                            Start today
+                        </div>
+                        <div class="card-content pricing-card-content">
+                            <div class="pricing-hero-text">
+                                <h2 class="pricing-hero-title">Join<br>Castcraft</h2>
+                                <p class="pricing-hero-description">One subscription to rule them all.</p>
+                            </div>
+                        </div>
+                        <div class="book-call pricing-book-call">
+                            <a href="https://cal.com/castcraft-discovery/15min" style="text-decoration: none; color: inherit; display: flex; align-items: center; width: 100%;">
+                                <div class="avatar pricing-avatar">
+                                    <img src="images/headshot-two.png" alt="Book a call">
+                                </div>
+                                <div class="call-text pricing-call-text">
+                                    <p>Book a 15-min intro call</p>
+                                    <span class="schedule-now pricing-schedule-now">Schedule now</span>
+                                </div>
+                                <div class="arrow-circle pricing-arrow-circle">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-details-card">
+                        <div class="pricing-header">
+                            <h3>Monthly Club</h3>
+                            <span class="pricing-note">PAUSE OR CANCEL ANYTIME</span>
+                        </div>
+                        
+                        <div class="price">
+                            <!-- Option 1: Fade Slide Up -->
+                            <div class="price-animation-container">
+                                <span class="price-cycle amount">€2,995</span>
+                                <span class="price-cycle amount">$3,099</span>
+                                <span class="price-cycle amount">£2,495</span>
+                            </div>
+                            <span class="period">/month</span>
+                        </div>
+                        
+                        <div class="features-grid">
+                            <div class="features-column">
+                                <div class="feature-item">Podcasts → Followers: Viral-ready clips for TikTok/Reels/Shorts</div>
+                                <div class="feature-item">Viral Shorts, Zero Stress: Platform-optimized videos in 48 hours</div>
+                                <div class="feature-item">Ghostwriting That Grows: Scroll-stopping posts, blogs, emails</div>
+                                <div class="feature-item">Engagement on Autopilot: Monthly title/hook tweaks for 20%+ engagement</div>
+                            </div>
+                            <div class="features-column">
+                                <div class="feature-item">Followers, Not Fluff: Trackable spikes from conversion-focused copy</div>
+                                <div class="feature-item">Algorithm Domination: Hashtag audits + posting times that flood DMs</div>
+                                <div class="feature-item">No Meetings, Just Growth: Async workflows. You approve, we execute</div>
+                                <div class="feature-item">Cancel Anytime (But Your Audience Won't Let You)</div>
+                            </div>
+                        </div>
+                        
+                        <button class="join-button">
+                            <span class="button-icon"></span>
+                            JOIN TODAY
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="pricing-benefits">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">⏸️</div>
+                        <div class="text-content">
+                            <h4>Pause anytime</h4>
+                            <p>Temporarily pause your subscription anytime, no sweat.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">✨</div>
+                        <div class="text-content">
+                            <h4>Try it for a week</h4>
+                            <p>Not loving it after a week? Get 75% back, no questions asked.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-    </main>
 
-    <footer>
-        <p>© 2024 Building a Second Brain. All rights reserved.</p>
-    </footer>
+        <footer>
+            <p>© 2025 Castcraft co. All rights reserved.</p>
+        </footer>
+    </main>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -221,6 +306,30 @@
             const underlineElement = document.querySelector('.highlight-underline');
             if (underlineElement) {
                 observer.observe(underlineElement);
+            }
+
+            // Function to handle smooth scrolling to pricing section
+            function scrollToPricing(e) {
+                e.preventDefault();
+                const pricingSection = document.getElementById('pricing-section');
+                if (pricingSection) {
+                    pricingSection.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+
+            // Add click handlers for both the button and nav link
+            const pricingBtn = document.querySelector('.see-pricing-btn');
+            const pricingNavLink = document.querySelector('.scroll-to-pricing');
+            
+            if (pricingBtn) {
+                pricingBtn.addEventListener('click', scrollToPricing);
+            }
+            
+            if (pricingNavLink) {
+                pricingNavLink.addEventListener('click', scrollToPricing);
             }
         });
     </script>

@@ -1,19 +1,17 @@
 {
-  "version": 2,
-  "builds": [
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
     {
-      "src": "src/**",
-      "use": "@vercel/static"
+      "source": "/",
+      "destination": "/src/index.html",
+      "permanent": true
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "^/$",
-      "dest": "/src/index.html"
-    },
-    {
-      "src": "/(.+)",
-      "dest": "/src/$1"
+      "source": "/(.*)",
+      "destination": "/src/$1"
     }
   ]
 } 

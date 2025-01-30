@@ -51,7 +51,7 @@ nav {
 
 .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .nav-links a {
@@ -59,25 +59,22 @@ nav {
     text-decoration: none;
     font-weight: 500;
     font-size: 0.9375rem;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
+    padding: 0.75rem 1.25rem;
+    border-radius: 100px;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
-.nav-links a:hover {
-    background: var(--accent-gradient);
-    color: white;
+.nav-links a:first-child {
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .nav-phone-icon {
     width: 16px;
     height: 16px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
 }
 
 main {
@@ -98,7 +95,7 @@ main {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
     gap: 2rem;
-    padding: 8rem 0;
+    padding: 4rem 0;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
@@ -178,7 +175,7 @@ main {
     background: var(--accent-gradient);
     color: white;
     padding: 1.25rem 2.5rem;
-    border-radius: 12px;
+    border-radius: 100px;
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
@@ -202,6 +199,8 @@ main {
     transition: all 0.3s ease;
     max-width: 400px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .hero-card:hover {
@@ -214,11 +213,12 @@ main {
     align-items: center;
     gap: 0.5rem;
     background: #000;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1.25rem;
     border-radius: 100px;
     font-size: 0.875rem;
     font-weight: 500;
     margin-bottom: 3rem;
+    width: fit-content;
 }
 
 .status-dot {
@@ -248,9 +248,9 @@ main {
 }
 
 .hero-card h2 {
-    font-size: 3.5rem;
+    font-size: 4rem;
     font-weight: 700;
-    margin: 0 0 1rem 0;
+    margin: 0 0 0.5rem 0;
     line-height: 1.1;
     letter-spacing: -0.02em;
 }
@@ -258,7 +258,7 @@ main {
 .hero-card > p {
     font-size: 1.25rem;
     opacity: 0.9;
-    margin: 0 0 3rem 0;
+    margin: 0 0 2rem 0;
     line-height: 1.4;
 }
 
@@ -273,22 +273,19 @@ main {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-bottom: 2rem;
-}
-
-.see-pricing-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    text-align: center;
 }
 
 .book-call {
     display: flex;
     align-items: center;
     padding: 1rem;
-    border-radius: 12px;
+    border-radius: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
     background: rgba(255, 255, 255, 0.1);
+    margin-top: auto;
 }
 
 .avatar {
@@ -315,16 +312,17 @@ main {
 
 .call-text p {
     margin: 0;
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 500;
+    color: white;
 }
 
 .schedule-now {
-    color: #A5B4FC;
-    font-size: 0.875rem !important;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem !important;
 }
 
-.arrow-circle, .pricing-arrow-circle {
+.arrow-circle {
     width: 40px;
     height: 40px;
     background: white;
@@ -332,16 +330,16 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 1rem;
+    margin-left: auto;
 }
 
-.arrow-circle svg, .pricing-arrow-circle svg {
+.arrow-circle svg {
     width: 24px;
     height: 24px;
     color: #000;
 }
 
-.arrow-circle svg path, .pricing-arrow-circle svg path {
+.arrow-circle svg path {
     stroke: currentColor;
     stroke-width: 2;
 }
@@ -725,14 +723,88 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .main-header {
+        padding: 1rem;
+        background: white;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 0.75rem;
+        margin-left: auto;
+    }
+
+    .nav-links a {
+        font-size: 0.875rem;
+        padding: 0.75rem 1.25rem;
+        background: white;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .nav-phone-icon {
+        width: 14px;
+        height: 14px;
+    }
+
     .hero {
         grid-template-columns: 1fr;
         gap: 3rem;
+        padding: 2rem 1rem;
         text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .hero-content {
+        padding-right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
     }
 
     .hero h1 {
         font-size: 3rem;
+        text-align: center;
+        width: 100%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .hero-description {
+        text-align: center;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 1rem;
+        box-sizing: border-box;
+    }
+
+    .highlight-container {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 1rem;
+    }
+
+    .highlight {
+        display: inline-block;
+        white-space: normal;
+        word-wrap: break-word;
+        max-width: 100%;
     }
 
     .benefits-grid {
@@ -743,9 +815,97 @@ footer {
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
     }
+
+    .quote {
+        font-size: 2.5rem;
+        padding: 0 1rem;
+    }
+
+    .benefits-subtitle {
+        font-size: 2.8rem;
+    }
+
+    .hero-card {
+        padding: 2rem;
+        max-width: none;
+        width: calc(100% - 2rem);
+        margin: 1rem;
+        box-sizing: border-box;
+    }
+
+    .start-today {
+        margin-bottom: 2.5rem;
+    }
+
+    .hero-card h2 {
+        font-size: 3.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .hero-card > p {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .see-pricing-btn {
+        margin-bottom: 1.5rem;
+        font-size: 1.125rem;
+        padding: 1rem;
+        border-radius: 12px;
+    }
+
+    .book-call {
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 12px;
+    }
+
+    .call-text p {
+        font-size: 1.125rem;
+    }
+
+    .schedule-now {
+        font-size: 0.875rem !important;
+        opacity: 0.7;
+    }
+
+    .arrow-circle {
+        width: 36px;
+        height: 36px;
+    }
 }
 
 @media (max-width: 480px) {
+    .main-header {
+        padding: 0.75rem 1rem;
+    }
+
+    .logo a {
+        font-size: 1.125rem;
+    }
+
+    nav {
+        gap: 0.5rem;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .nav-links a {
+        font-size: 0.8125rem;
+        padding: 0.625rem 1rem;
+        background: white;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    }
+
+    .nav-phone-icon {
+        width: 12px;
+        height: 12px;
+    }
+
     .benefits-grid {
         grid-template-columns: 1fr;
         padding: 0 1rem;
@@ -753,10 +913,160 @@ footer {
     
     .hero h1 {
         font-size: 2.5rem;
+        padding: 0 1rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .hero-description {
+        font-size: 1.25rem;
+        padding: 0 1rem;
     }
     
     .logo-grid {
-        grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
+    }
+
+    .quote {
+        font-size: 1.125rem;
+        line-height: 1.4;
+        padding: 0 1.5rem;
+        margin-bottom: 2rem;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+        letter-spacing: -0.01em;
+    }
+
+    .testimonial-content {
+        padding: 0 1rem;
+    }
+
+    .benefits-subtitle {
+        font-size: 2.2rem;
+    }
+
+    .cta-button {
+        width: calc(100% - 2rem);
+        text-align: center;
+        margin: 0 1rem;
+        white-space: normal;
+        word-wrap: break-word;
+        border-radius: 12px;
+        padding: 1.25rem;
+        font-size: 1.125rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        box-shadow: 0 15px 30px rgba(37, 99, 235, 0.2);
+    }
+
+    .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3);
+    }
+
+    .how-it-works h2 {
+        font-size: 2.2rem;
+        padding: 0 1rem;
+    }
+
+    .nav-links {
+        padding: 0.5rem;
+    }
+
+    .nav-links a {
+        padding: 0.5rem;
+        font-size: 0.8125rem;
+    }
+
+    .hero-card {
+        padding: 1.5rem;
+        width: calc(100% - 2rem);
+        margin: 1rem;
+    }
+
+    .hero-card h2 {
+        font-size: 3rem;
+    }
+
+    .hero-card > p {
+        font-size: 1.125rem;
+    }
+
+    .see-pricing-btn {
+        padding: 0.875rem;
+        font-size: 1rem;
+    }
+
+    .book-call {
+        padding: 0.875rem;
+    }
+
+    .call-text p {
+        font-size: 1rem;
+    }
+
+    .schedule-now {
+        font-size: 0.875rem !important;
+    }
+
+    .arrow-circle {
+        width: 32px;
+        height: 32px;
+    }
+
+    .showcase-section {
+        padding: 2rem 1rem;
+    }
+
+    .main-item {
+        padding: 1rem;
+        min-height: 286px;
+    }
+
+    .work-item {
+        max-width: 208px;
+        height: 260px;
+        transform: scale(0.95);
+        margin: 0 2px;
+    }
+
+    .work-item img {
+        width: calc(100% - 8px);
+        height: calc(100% - 8px);
+        padding: 4px;
+        border-radius: 16px;
+    }
+
+    .carousel-track {
+        height: 286px;
+        transform: rotate(-7deg) translateX(0) scale(0.95);
+    }
+
+    .showcase-content {
+        left: 1rem;
+        top: 1rem;
+        max-width: 200px;
+    }
+
+    .showcase-content h2 {
+        font-size: 1.75rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .showcase-content p {
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
+    }
+
+    .work-carousel {
+        height: 286px;
+        top: 75%;
+        transform: translateY(-25%);
     }
 }
 

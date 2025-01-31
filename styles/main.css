@@ -912,11 +912,13 @@ footer {
     }
     
     .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
         padding: 0 1rem;
         word-wrap: break-word;
         overflow-wrap: break-word;
         hyphens: auto;
+        white-space: nowrap;
+        line-height: 1.2;
     }
 
     .hero-description {

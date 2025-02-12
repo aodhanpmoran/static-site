@@ -12,3 +12,5 @@
 1. Remove pricing section and redo simply
 2. Redo animated carousel on mobile
 3. Tweak pricing card with better copy
+4. Add favicon
+5. Add SEO
